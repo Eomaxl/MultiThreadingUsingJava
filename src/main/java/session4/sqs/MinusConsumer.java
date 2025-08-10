@@ -11,7 +11,7 @@ public class MinusConsumer implements IConsumer{
         isFree = false;
         System.out.println(Thread.currentThread().getName() + ": Minus started: " + msg.toString());
         Thread.sleep(3000);
-        System.out.println(Thread.currentThread().getName() + ": Minus completed: " + (msg.num1 - msg.num2));
+        System.out.println(Thread.currentThread().getName() + ": Minus completed: " + Math.abs((msg.num1 - msg.num2)));
         isFree = true;
     }
 
