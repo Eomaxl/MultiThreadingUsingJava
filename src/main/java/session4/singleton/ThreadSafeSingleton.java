@@ -28,6 +28,22 @@ public class ThreadSafeSingleton {
     }
 
     public static ThreadSafeSingleton getInstance3() {
+        synchronized (ThreadSafeSingleton.class) {
+            if(instance == null) {
+                instance = new ThreadSafeSingleton();
+            }
+        }
+        return instance;
+    }
 
+    public static ThreadSafeSingleton getInstance4() {
+        if(instance == null) {
+            synchronized (ThreadSafeSingleton.class) {
+                if(instance == null) {
+                    instance = new ThreadSafeSingleton();
+                }
+            }
+        }
+        return instance;
     }
 }
