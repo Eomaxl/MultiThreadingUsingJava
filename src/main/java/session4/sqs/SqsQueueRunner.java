@@ -10,5 +10,6 @@ public class SqsQueueRunner {
 
         queue.publish(new CalculationMessage(1,2));
         queue.publish(new CalculationMessage(3,4));
+        queue.publish(new CalculationMessage(5,6));
     }
 }

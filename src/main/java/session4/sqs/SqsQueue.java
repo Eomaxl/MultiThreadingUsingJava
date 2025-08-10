@@ -13,6 +13,7 @@ public class SqsQueue {
     final Queue<CalculationMessage> queue = new LinkedList<CalculationMessage>();
 
     public void registerConsumer(IConsumer consumer) {
+        System.out.println("Registering consumer: " + consumer);
         consumerList.add(consumer);
         new Thread(new ConsumerWorker(state, consumer)).start();
     }
