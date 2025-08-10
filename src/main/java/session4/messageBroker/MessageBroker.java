@@ -17,10 +17,14 @@ public class MessageBroker {
         consumers.forEach(sqsQueue::registerConsumer);
     }
 
-    public void publish(CalculationMessage message){
-        for(SqsQueue q: queues.values()){
-            q.publish(message);
+    public void publish(String consumerType, CalculationMessage message){
+        if(queues.containsKey(consumerType)){
+            queues.get(consumerType).publish(message);
+
         }
+//        for(SqsQueue q: queues.values()){
+//            q.publish(message);
+//        }
     }
 
     public void resetOffset(String subName, int newOffset){
